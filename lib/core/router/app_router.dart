@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import '../../features/splash/presentation/pages/splash_screen.dart';
+import '../../features/home/presentation/pages/home_screen.dart';
 import '../../features/onboarding/presentation/pages/onboarding_screen.dart';
+import '../../features/splash/presentation/pages/splash_screen.dart';
 
 class AppRouter {
-  static const String splash = '/splash';
-  static const String onboarding = '/onboarding';
+  static const String splash = 'splash';
+  static const String onboarding = 'onboarding';
+  static const String home = 'home';
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -12,12 +14,12 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const SplashScreen());
       case onboarding:
         return MaterialPageRoute(builder: (_) => const OnboardingScreen());
+      case home:
+        return MaterialPageRoute(builder: (_) => const HomeScreen());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
-            body: Center(
-              child: Text('No route defined for ${settings.name}'),
-            ),
+            body: Center(child: Text('No route defined for ${settings.name}')),
           ),
         );
     }
